@@ -1,8 +1,25 @@
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
 
+SRCS = check.cpp
 
-CXX ?= g++
-#BIN_DIR :=bin 
-#EXECUTABLE :=$(BIN_DIR)/a
-check.out: check.cpp
-	$(CXX) check.cpp -o check.out
+
+OBJS = $(SRCS:.cpp=.o)
+
+
+TARGET = bin/check
+all:$(TARGET)	
+$(TARGET): $(OBJS)
+	 $(CXX) $(CXXFLAGS) -o $@ $^
+
+
+%.o: %.cpp
+	 $(CXX) $(CXXFLAGS) -c $< -o $@
+
+
+clean:
+	 rm -f $(OBJS)
+
+
+.PHONY: clean

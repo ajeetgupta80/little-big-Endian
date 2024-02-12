@@ -1,6 +1,15 @@
 #include <iostream>
+#include <math.h>
+#include <string>
 
-void LITTLE_OR_BIG() {
+#define nline endl
+
+class endian {
+public:
+  void LITTLE_OR_BIG();
+};
+
+void endian::LITTLE_OR_BIG() {
   unsigned int i = 1;
   char *c = (char *)&i;
 
@@ -12,8 +21,9 @@ void LITTLE_OR_BIG() {
 }
 
 int main() {
+  endian end;
   int t = 1;
   while (t--) {
-    LITTLE_OR_BIG();
+    end.LITTLE_OR_BIG();
   }
 }
